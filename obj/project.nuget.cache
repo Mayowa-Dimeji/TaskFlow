@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "gH9cJ94q5e4=",
+  "dgSpecHash": "1sMOpvXmaGA=",
   "success": true,
   "projectFilePath": "/Users/may/projects/TaskFlow/TaskFlow.csproj",
   "expectedPackageFiles": [
+    "/Users/may/.nuget/packages/blazored.toast/4.2.1/blazored.toast.4.2.1.nupkg.sha512",
     "/Users/may/.nuget/packages/microsoft.aspnetcore.authorization/9.0.6/microsoft.aspnetcore.authorization.9.0.6.nupkg.sha512",
     "/Users/may/.nuget/packages/microsoft.aspnetcore.components/9.0.6/microsoft.aspnetcore.components.9.0.6.nupkg.sha512",
     "/Users/may/.nuget/packages/microsoft.aspnetcore.components.analyzers/9.0.6/microsoft.aspnetcore.components.analyzers.9.0.6.nupkg.sha512",

@@ -1,4 +1,5 @@
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/blazor.webassembly.js
+/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/Blazored.Toast.4gbrhkrum5.wasm
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/Microsoft.AspNetCore.Authorization.phaa9r44xv.wasm
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/Microsoft.AspNetCore.Components.4o2vz6uw5j.wasm
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/Microsoft.AspNetCore.Components.Forms.1ddspp16i2.wasm
@@ -199,8 +200,11 @@
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/icudt_CJK.tjcz0u77k5.dat
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/icudt_EFIGS.tptq2av103.dat
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/icudt_no_CJK.lfu7j35m59.dat
+/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.o1ssa3b2j8.wasm
+/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.bl1q4sahaz.pdb
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/blazor.boot.json
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/blazor.webassembly.js.gz
+/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/Blazored.Toast.4gbrhkrum5.wasm.gz
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/Microsoft.AspNetCore.Authorization.phaa9r44xv.wasm.gz
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/Microsoft.AspNetCore.Components.4o2vz6uw5j.wasm.gz
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/Microsoft.AspNetCore.Components.Forms.1ddspp16i2.wasm.gz
@@ -401,6 +405,8 @@
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/icudt_CJK.tjcz0u77k5.dat.gz
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/icudt_EFIGS.tptq2av103.dat.gz
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/icudt_no_CJK.lfu7j35m59.dat.gz
+/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.o1ssa3b2j8.wasm.gz
+/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.bl1q4sahaz.pdb.gz
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/blazor.boot.json.gz
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/package-lock.json
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/package.json
@@ -408,6 +414,7 @@
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/TaskFlow.staticwebassets.endpoints.json
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/TaskFlow.dll
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/TaskFlow.pdb
+/Users/may/projects/TaskFlow/bin/Debug/net9.0/Blazored.Toast.dll
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/Microsoft.AspNetCore.Authorization.dll
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/Microsoft.AspNetCore.Components.dll
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/Microsoft.AspNetCore.Components.Forms.dll
@@ -615,6 +622,8 @@
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/TaskFlow.AssemblyInfo.cs
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/TaskFlow.csproj.CoreCompileInputs.cache
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/TaskFlow.MvcApplicationPartsAssemblyInfo.cache
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/TaskFlow.sourcelink.json
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/webcil/Blazored.Toast.wasm
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/webcil/Microsoft.AspNetCore.Authorization.wasm
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/webcil/Microsoft.AspNetCore.Components.wasm
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/webcil/Microsoft.AspNetCore.Components.Forms.wasm
@@ -813,10 +822,10 @@
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/scopedcss/bundle/TaskFlow.styles.css
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/blazor.build.boot-extension.json
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/blazor.boot.json
-/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/e8n5ge1bhn-6h6v874upz.gz
-/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/5h82vsf4v9-6oumdqk0yl.gz
-/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/j4ksgl9kwa-6noyuapqne.gz
-/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/k0bgn2xxs4-a48hyudhwi.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/e8n5ge1bhn-ynehzg4g2v.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/5h82vsf4v9-o6rdbuhksa.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/j4ksgl9kwa-r4diwikgdy.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/k0bgn2xxs4-dtqpyjg990.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/d0ne0mrdyj-bqjiyaj88i.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/b2ebbldmpn-c2jlpeoesf.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/497ppqe56n-erw9l3u2r3.gz
@@ -863,6 +872,9 @@
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/9kn9nwbzzl-0prxpojqvd.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/vquly6q58z-iag0ou56lh.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/11tfd5hu8v-md9yvkcqlf.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/5pb5ikadpp-2eijknf10w.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/zj6hh7zc38-r9fjwf21am.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/u7dmecxm34-4gbrhkrum5.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/r259pm538e-phaa9r44xv.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/ew2wxl7y3b-4o2vz6uw5j.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/j0h06s6rfa-1ddspp16i2.gz
@@ -1063,6 +1075,9 @@
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/8ca24q5vdi-tjcz0u77k5.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/i73h9tfczo-tptq2av103.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/9e3khqay9g-lfu7j35m59.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/nhala78nx3-o1ssa3b2j8.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/guv1hpirhb-bl1q4sahaz.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/z6p70nt3ug-eaekyy33m5.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/staticwebassets.build.json
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/staticwebassets.build.json.cache
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/staticwebassets.development.json
@@ -1072,10 +1087,3 @@
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/refint/TaskFlow.dll
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/TaskFlow.pdb
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/ref/TaskFlow.dll
-/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.la6ppjyrxw.wasm
-/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.whytfb2k4v.pdb
-/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.la6ppjyrxw.wasm.gz
-/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.whytfb2k4v.pdb.gz
-/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/nhala78nx3-la6ppjyrxw.gz
-/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/guv1hpirhb-whytfb2k4v.gz
-/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/z6p70nt3ug-w6yralbzz1.gz
