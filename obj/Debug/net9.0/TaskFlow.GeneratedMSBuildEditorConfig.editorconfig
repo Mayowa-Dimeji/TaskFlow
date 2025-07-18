@@ -28,6 +28,10 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/may/projects/TaskFlow/Layout/AddTaskIntro.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L0FkZFRhc2tJbnRyby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/may/projects/TaskFlow/Layout/BottomNav.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L0JvdHRvbU5hdi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
