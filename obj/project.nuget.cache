@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wrPrc9Nfr/I=",
+  "dgSpecHash": "rTfS1VMbzws=",
   "success": true,
   "projectFilePath": "/Users/may/projects/TaskFlow/TaskFlow.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,7 @@
     "/Users/may/.nuget/packages/microsoft.aspnetcore.components/9.0.7/microsoft.aspnetcore.components.9.0.7.nupkg.sha512",
     "/Users/may/.nuget/packages/microsoft.aspnetcore.components.analyzers/9.0.7/microsoft.aspnetcore.components.analyzers.9.0.7.nupkg.sha512",
     "/Users/may/.nuget/packages/microsoft.aspnetcore.components.authorization/9.0.7/microsoft.aspnetcore.components.authorization.9.0.7.nupkg.sha512",
-    "/Users/may/.nuget/packages/microsoft.aspnetcore.components.forms/9.0.6/microsoft.aspnetcore.components.forms.9.0.6.nupkg.sha512",
+    "/Users/may/.nuget/packages/microsoft.aspnetcore.components.forms/9.0.7/microsoft.aspnetcore.components.forms.9.0.7.nupkg.sha512",
     "/Users/may/.nuget/packages/microsoft.aspnetcore.components.web/9.0.6/microsoft.aspnetcore.components.web.9.0.6.nupkg.sha512",
     "/Users/may/.nuget/packages/microsoft.aspnetcore.components.webassembly/9.0.6/microsoft.aspnetcore.components.webassembly.9.0.6.nupkg.sha512",
     "/Users/may/.nuget/packages/microsoft.aspnetcore.components.webassembly.devserver/9.0.6/microsoft.aspnetcore.components.webassembly.devserver.9.0.6.nupkg.sha512",
@@ -37,6 +37,7 @@
     "/Users/may/.nuget/packages/microsoft.net.illink.tasks/9.0.6/microsoft.net.illink.tasks.9.0.6.nupkg.sha512",
     "/Users/may/.nuget/packages/microsoft.net.sdk.webassembly.pack/9.0.6/microsoft.net.sdk.webassembly.pack.9.0.6.nupkg.sha512",
     "/Users/may/.nuget/packages/system.identitymodel.tokens.jwt/8.12.1/system.identitymodel.tokens.jwt.8.12.1.nupkg.sha512",
+    "/Users/may/.nuget/packages/system.net.http.json/9.0.7/system.net.http.json.9.0.7.nupkg.sha512",
     "/Users/may/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/9.0.6/microsoft.netcore.app.runtime.mono.browser-wasm.9.0.6.nupkg.sha512"
   ],
   "logs": []

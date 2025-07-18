@@ -80,10 +80,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Forms/9.0.6": {
+      "Microsoft.AspNetCore.Components.Forms/9.0.7": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "9.0.6"
+          "Microsoft.AspNetCore.Components": "9.0.7"
         },
         "compile": {
           "lib/net9.0/Microsoft.AspNetCore.Components.Forms.dll": {
@@ -547,6 +547,22 @@
           "lib/net9.0/System.IdentityModel.Tokens.Jwt.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "System.Net.Http.Json/9.0.7": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/System.Net.Http.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/System.Net.Http.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
         }
       }
     },
@@ -629,10 +645,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Forms/9.0.6": {
+      "Microsoft.AspNetCore.Components.Forms/9.0.7": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "9.0.6"
+          "Microsoft.AspNetCore.Components": "9.0.7"
         },
         "compile": {
           "lib/net9.0/Microsoft.AspNetCore.Components.Forms.dll": {
@@ -1096,6 +1112,22 @@
           "lib/net9.0/System.IdentityModel.Tokens.Jwt.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "System.Net.Http.Json/9.0.7": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/System.Net.Http.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/System.Net.Http.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
         }
       }
     }
@@ -1187,10 +1219,10 @@
         "microsoft.aspnetcore.components.authorization.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Forms/9.0.6": {
-      "sha512": "GHdFdrU+9ePkuE7S2g7iu+Lg8FPBY9qGaK+FPSBHNx8ulEdrOHJhufb1FZH/m++NoJgcikOzJ14+eL96HfBr8g==",
+    "Microsoft.AspNetCore.Components.Forms/9.0.7": {
+      "sha512": "ecnFWXV/ClmBfkevmalj1e1+T00AkihOyK8yQdKOwKmibraYphyup4BdOLP7v17PNVF4d5njsoHmFtVBvYpsJg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.forms/9.0.6",
+      "path": "microsoft.aspnetcore.components.forms/9.0.7",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1198,7 +1230,7 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net9.0/Microsoft.AspNetCore.Components.Forms.dll",
         "lib/net9.0/Microsoft.AspNetCore.Components.Forms.xml",
-        "microsoft.aspnetcore.components.forms.9.0.6.nupkg.sha512",
+        "microsoft.aspnetcore.components.forms.9.0.7.nupkg.sha512",
         "microsoft.aspnetcore.components.forms.nuspec"
       ]
     },
@@ -2134,17 +2166,47 @@
         "system.identitymodel.tokens.jwt.8.12.1.nupkg.sha512",
         "system.identitymodel.tokens.jwt.nuspec"
       ]
+    },
+    "System.Net.Http.Json/9.0.7": {
+      "sha512": "6iEg+UUQYdEhptcYojluXo1vo+cFjsKEry/uhv+X3xUY6enDF0aTKeOaqTStYM5M8Tl4CqCz8+vQFqaJfQskuQ==",
+      "type": "package",
+      "path": "system.net.http.json/9.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Net.Http.Json.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Net.Http.Json.targets",
+        "lib/net462/System.Net.Http.Json.dll",
+        "lib/net462/System.Net.Http.Json.xml",
+        "lib/net8.0/System.Net.Http.Json.dll",
+        "lib/net8.0/System.Net.Http.Json.xml",
+        "lib/net9.0/System.Net.Http.Json.dll",
+        "lib/net9.0/System.Net.Http.Json.xml",
+        "lib/netstandard2.0/System.Net.Http.Json.dll",
+        "lib/netstandard2.0/System.Net.Http.Json.xml",
+        "system.net.http.json.9.0.7.nupkg.sha512",
+        "system.net.http.json.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "Blazored.Toast >= 4.2.1",
       "Microsoft.AspNetCore.Components.Authorization >= 9.0.7",
+      "Microsoft.AspNetCore.Components.Forms >= 9.0.7",
       "Microsoft.AspNetCore.Components.WebAssembly >= 9.0.6",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 9.0.6",
       "Microsoft.NET.ILLink.Tasks >= 9.0.6",
       "Microsoft.NET.Sdk.WebAssembly.Pack >= 9.0.6",
-      "System.IdentityModel.Tokens.Jwt >= 8.12.1"
+      "System.IdentityModel.Tokens.Jwt >= 8.12.1",
+      "System.Net.Http.Json >= 9.0.7"
     ]
   },
   "packageFolders": {
@@ -2198,6 +2260,10 @@
             "target": "Package",
             "version": "[9.0.7, )"
           },
+          "Microsoft.AspNetCore.Components.Forms": {
+            "target": "Package",
+            "version": "[9.0.7, )"
+          },
           "Microsoft.AspNetCore.Components.WebAssembly": {
             "target": "Package",
             "version": "[9.0.6, )"
@@ -2222,6 +2288,10 @@
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
             "version": "[8.12.1, )"
+          },
+          "System.Net.Http.Json": {
+            "target": "Package",
+            "version": "[9.0.7, )"
           }
         },
         "imports": [

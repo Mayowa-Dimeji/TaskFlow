@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[9.0.7, )"
             },
+            "Microsoft.AspNetCore.Components.Forms": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
               "version": "[9.0.6, )"
@@ -76,6 +80,10 @@
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[8.12.1, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[9.0.7, )"
             }
           },
           "imports": [
