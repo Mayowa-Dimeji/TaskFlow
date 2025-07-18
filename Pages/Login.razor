@@ -2,10 +2,12 @@
 @layout LoginLayout
 @using System.ComponentModel.DataAnnotations
 @inject HttpClient Http
+@inject ITokenService TokenService
+
 @inject NavigationManager Nav
 @inject IJSRuntime JS
 
-<section class="w-full max-w-md p-4 shadow-md rounded flex flex-col items-center space-y-6">
+<section class="w-full max-w-md bg-white p-4 shadow-md rounded flex flex-col items-center space-y-6">
     <h1 class="text-lg font-semibold mb-2 text-center">Welcome Back</h1>
     <p class="mb-4 text-sm text-center text-gray-600">Please log in to continue.</p>
 
@@ -18,7 +20,7 @@
             <InputText @bind-Value="loginModel.Password" type="password" class="input" placeholder="Password" />
         </div>
 
-        <button type="submit" class="mt-4 w-full bg-indigo-600  py-2 px-4 rounded hover:bg-indigo-700">
+        <button type="submit" class="mt-4 w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700">
             Log In
         </button>
     </EditForm>
@@ -35,6 +37,8 @@
     {
         try
         {
+         
+
             var response = await Http.PostAsJsonAsync(
                 "https://taskmanager-func-xyz-evghhpandvc6fvek.ukwest-01.azurewebsites.net/api/loginuser",
                 loginModel
@@ -47,29 +51,25 @@
 
                 if (!string.IsNullOrEmpty(token))
                 {
+                    TokenService.SaveToken(token);
                     await JS.InvokeVoidAsync("alert", "✅ Login successful!");
                     Nav.NavigateTo("/dashboard");
                 }
                 else
                 {
-                    await JS.InvokeVoidAsync("alert", "⚠️ Login succeeded but token was missing.");
+                    await JS.InvokeVoidAsync("alert", "⚠️ Login succeeded but no token received.");
                 }
             }
             else
             {
-                var err = await response.Content.ReadAsStringAsync();
-                await JS.InvokeVoidAsync("alert", $"❌ Login failed:\n{err}");
+                var error = await response.Content.ReadAsStringAsync();
+                await JS.InvokeVoidAsync("alert", $"❌ Login failed:\n{error}");
             }
         }
         catch (Exception ex)
         {
             await JS.InvokeVoidAsync("alert", $"⚠️ Something went wrong:\n{ex.Message}");
         }
-    }
-
-    private class TokenResponse
-    {
-        public string Token { get; set; } = string.Empty;
     }
 
     private class LoginModel
@@ -80,5 +80,10 @@
 
         [Required(ErrorMessage = "Password is required")]
         public string Password { get; set; } = string.Empty;
+    }
+
+    private class TokenResponse
+    {
+        public string Token { get; set; } = string.Empty;
     }
 }
