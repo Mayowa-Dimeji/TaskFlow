@@ -1,0 +1,10 @@
+<div class="bg-white dark:bg-gray-800 p-4 rounded shadow-sm text-center">
+    <p class="text-sm text-gray-500">@Title</p>
+    <p class="text-2xl font-bold @TextColor">@Value</p>
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; } = "";
+    [Parameter] public int Value { get; set; }
+    [Parameter] public string TextColor { get; set; } = "text-black";
+}

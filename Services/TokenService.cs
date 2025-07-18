@@ -1,4 +1,5 @@
 using Microsoft.JSInterop;
+using System.IdentityModel.Tokens.Jwt;
 
 #pragma warning disable CA1050 // Declare types in namespaces
 public class TokenService : ITokenService
@@ -28,8 +29,14 @@ public class TokenService : ITokenService
         await _js.InvokeVoidAsync("localStorage.removeItem", TokenKey);
     }
 
-    string? ITokenService.GetToken()
+    public async Task<string?> GetUsername()
     {
-        throw new NotImplementedException();
+        var token = await GetToken();
+        if (string.IsNullOrWhiteSpace(token)) return null;
+
+        var handler = new JwtSecurityTokenHandler();
+        var jwt = handler.ReadJwtToken(token);
+
+        return jwt.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.UniqueName)?.Value;
     }
 }

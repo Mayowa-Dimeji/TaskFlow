@@ -1,7 +1,71 @@
-<section class="intro flex flex-row w-full items-center justify-between md:py-4 md:px-8 md:space-x-8 p-4 gap-4"> 
-    <section class="goodmorning flex flex-col">
-        <p class="text-md font-semibold"> Hi Sarah!</p>
-        <p class="text-gray-500 dark:text-gray-600">you have 3 pending tasks for today</p>
-    </section>
-    <button class="flex py-2 px-2 md:py-3 md:px-4 items-center justify-center bg-indigo-400 dark:bg-indigo-700 shadow rounded-2xl"><svg xmlns="http://www.w3.org/2000/svg" class="size-5 md:size-6" viewBox="0 0 512 512"><path fill="currentColor" fill-rule="evenodd" d="M277.119 65.93v168.951h168.952v42.238H277.119v168.952h-42.238V277.119H65.93v-42.238h168.951V65.93z"/></svg> <span class="ml-2">Add Task</span></button>
-</section>
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Authorization
+@using TaskFlow.Components
+@inject ITokenService TokenService
+@inject AuthenticationStateProvider AuthProvider
+
+<AuthorizeView>
+    <Authorized>
+        @if (!string.IsNullOrEmpty(username))
+        {
+            <section class="intro flex flex-col w-full gap-4 md:gap-6 p-4 md:px-8 md:py-4">
+                <!-- Greeting + Add Button -->
+                <div class="flex flex-row items-center justify-between gap-4">
+                    <section class="goodmorning flex flex-col">
+                        <p class="text-md font-semibold">Hi @username!</p>
+                        <p class="text-gray-500 dark:text-gray-400">You have @Stats.Pending pending tasks for today</p>
+                    </section>
+
+                    <button class="flex items-center py-2 px-3 md:py-3 md:px-4 bg-indigo-400 dark:bg-indigo-700 text-white shadow rounded-2xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5 md:size-6" viewBox="0 0 512 512">
+                            <path fill="currentColor" fill-rule="evenodd" d="M277.119 65.93v168.951h168.952v42.238H277.119v168.952h-42.238V277.119H65.93v-42.238h168.951V65.93z" />
+                        </svg>
+                        <span class="ml-2">Add Task</span>
+                    </button>
+                </div>
+
+                <!-- Stat Cards -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
+                    <StatCard Title="Total Tasks" Value="@Stats.Total" />
+                    <StatCard Title="Completed" Value="@Stats.Completed" TextColor="text-green-500" />
+                    <StatCard Title="Pending" Value="@Stats.Pending" TextColor="text-yellow-500" />
+                    <StatCard Title="Overdue" Value="@Stats.Overdue" TextColor="text-red-500" />
+                </div>
+            </section>
+        }
+        else
+        {
+            <p class="p-4 text-gray-400">Loading user info...</p>
+        }
+    </Authorized>
+    <NotAuthorized>
+        <p class="p-4 text-red-500">You must be logged in to view your tasks.</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    [Parameter] public TaskStats Stats { get; set; } = new TaskStats();
+    private string? username;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity?.IsAuthenticated ?? false)
+        {
+            username = await TokenService.GetUsername();
+        }
+
+        // Optional: call your GetTasks endpoint and set Stats dynamically
+        // For now, if no API call, Stats will default to all zeroes
+    }
+
+    public class TaskStats
+    {
+        public int Total { get; set; }
+        public int Completed { get; set; }
+        public int Pending { get; set; }
+        public int Overdue { get; set; }
+    }
+}

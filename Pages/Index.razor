@@ -1,6 +1,24 @@
 @page "/dashboard"
-
-
+@attribute [Authorize]
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Authorization
 
 
 <AddTaskIntro />
+
+
+@inject NavigationManager Nav
+@inject AuthenticationStateProvider AuthProvider
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (!user.Identity?.IsAuthenticated ?? true)
+        {
+            Nav.NavigateTo("/", forceLoad: true); // redirect to login
+        }
+    }
+}
