@@ -2,19 +2,28 @@
 @attribute [Authorize]
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Authorization
+@using TaskFlow.Services
+@using TaskFlow.Models
+@using TaskFlow.Components
+@inject TaskService TaskService
 
 
-<AddTaskIntro />
+<AddTaskIntro Stats="@stats" />
+<TaskCardList />
+
+
 
 
 @inject NavigationManager Nav
 @inject AuthenticationStateProvider AuthProvider
 
 @code {
+    private TaskStats stats = new();
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthProvider.GetAuthenticationStateAsync();
         var user = authState.User;
+        stats = await TaskService.GetTaskStatsAsync() ?? new TaskStats();
 
         if (!user.Identity?.IsAuthenticated ?? true)
         {

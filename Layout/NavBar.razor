@@ -1,3 +1,6 @@
+@using TaskFlow.Services
+@inject ITokenService TokenService
+@inject NavigationManager Nav
 <section class="navbar flex justify-between items-center p-4 shadow-md w-full">
     <section class="navlogo flex items-center gap-2 justify-center">
         <img src="https://img.icons8.com/?size=100&id=48255&format=png&color=000000" alt="navlogo" class="w-10 h-10" />
@@ -6,10 +9,41 @@
 
     </section>
 
-    <section class="navlinks flex items-center gap-3">
-        <svg class="size-5 md:size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="currentColor" d="M960 960H622q-17 29-46 46.5t-64 17.5t-64-17.5t-46-46.5H64q-27 0-45.5-19T0 896v-64q53 0 90.5-75T128 576V448q0-142 91.5-248.5T448 70v-6q0-27 19-45.5T512 0t45 18.5T576 64v6q137 23 228.5 129.5T896 448v128q0 106 37.5 181t90.5 75v64q0 26-18.5 45T960 960z"/></svg>
-        <svg class="size-5 md:size-6 rounded-full" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path fill="currentColor" d="M15.71 12.71a6 6 0 1 0-7.42 0a10 10 0 0 0-6.22 8.18a1 1 0 0 0 2 .22a8 8 0 0 1 15.9 0a1 1 0 0 0 1 .89h.11a1 1 0 0 0 .88-1.1a10 10 0 0 0-6.25-8.19ZM12 12a4 4 0 1 1 4-4a4 4 0 0 1-4 4Z"/></svg>
+<section class="navlinks relative flex items-center gap-3">
+    <button @onclick="ToggleMenu">
+        <svg class="size-5 md:size-6 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M15.71 12.71a6 6 0 1 0-7.42 0a10 10 0 0 0-6.22 8.18a1 1 0 0 0 2 .22a8 8 0 0 1 15.9 0a1 1 0 0 0 1 .89h.11a1 1 0 0 0 .88-1.1a10 10 0 0 0-6.25-8.19ZM12 12a4 4 0 1 1 4-4a4 4 0 0 1-4 4Z"/>
+        </svg>
+    </button>
 
-    </section>
+    @if (showMenu)
+    {
+        <div class="absolute top-10 right-0 z-50 bg-white dark:bg-gray-600/50 border rounded-md shadow-md text-sm w-40 md:w-48">
+            @* Desktop Menu *@
+            <div class="hidden  md:block">
+                <button class="w-full text-left   px-4 py-2 bg-white dark:bg-gray-600 hover:bg-indigo-100 dark:hover:bg-indigo-600 dark:text-white">Tasks</button>
+                <button class="w-full text-left   px-4 py-2 bg-white dark:bg-gray-600 hover:bg-indigo-100 dark:hover:bg-indigo-600 dark:text-white">Calendar</button>
+                <button class="w-full text-left   px-4 py-2 bg-white dark:bg-gray-600 hover:bg-indigo-100 dark:hover:bg-indigo-600 dark:text-white">Analytics</button>
+            </div>
+
+            @* Always show logout *@
+            <button @onclick="Logout" class="w-full dark:bg-gray-600/50 text-left px-4 py-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-600 dark:text-red-400">
+                Logout
+            </button>
+        </div>
+    }
+</section>
+
 
 </section>
+@code {
+    private bool showMenu = false;
+
+    private void ToggleMenu() => showMenu = !showMenu;
+
+    private void Logout()
+    {
+        TokenService.ClearToken(); // or your custom logout logic
+        Nav.NavigateTo("/");
+    }
+}

@@ -1,13 +1,16 @@
 @page "/"
 @layout LoginLayout
 @using System.ComponentModel.DataAnnotations
+@using TaskFlow.Services
 @inject HttpClient Http
 @inject ITokenService TokenService
 
 @inject NavigationManager Nav
+@inject TaskCacheService TaskCacheService
+
 @inject IJSRuntime JS
 
-<section class="w-full max-w-md bg-white p-4 shadow-md rounded flex flex-col items-center space-y-6">
+<section class="w-full max-w-md bg-white/50 dark:bg-gray-600/50 p-4 shadow-md rounded flex flex-col items-center space-y-6">
     <h1 class="text-lg font-semibold mb-2 text-center">Welcome Back</h1>
     <p class="mb-4 text-sm text-center text-gray-600">Please log in to continue.</p>
 
@@ -25,7 +28,7 @@
         </button>
     </EditForm>
 
-    <p class="mt-4 text-sm text-center text-gray-600">
+    <p class="mt-4 text-sm text-center ">
         Don't have an account? <a href="/register" class="text-indigo-600 hover:underline">Sign up</a>
     </p>
 </section>
@@ -33,44 +36,46 @@
 @code {
     private LoginModel loginModel = new();
 
-    private async Task HandleLogin()
+ private async Task HandleLogin()
+{
+    try
     {
-        try
+        var response = await Http.PostAsJsonAsync(
+            "https://taskmanager-func-xyz-evghhpandvc6fvek.ukwest-01.azurewebsites.net/api/loginuser",
+            loginModel
+        );
+
+        if (response.IsSuccessStatusCode)
         {
-         
+            var json = await response.Content.ReadFromJsonAsync<TokenResponse>();
+            var token = json?.Token;
 
-            var response = await Http.PostAsJsonAsync(
-                "https://taskmanager-func-xyz-evghhpandvc6fvek.ukwest-01.azurewebsites.net/api/loginuser",
-                loginModel
-            );
-
-            if (response.IsSuccessStatusCode)
+            if (!string.IsNullOrEmpty(token))
             {
-                var json = await response.Content.ReadFromJsonAsync<TokenResponse>();
-                var token = json?.Token;
+                TokenService.SaveToken(token);
 
-                if (!string.IsNullOrEmpty(token))
-                {
-                    TokenService.SaveToken(token);
-                    await JS.InvokeVoidAsync("alert", "✅ Login successful!");
-                    Nav.NavigateTo("/dashboard");
-                }
-                else
-                {
-                    await JS.InvokeVoidAsync("alert", "⚠️ Login succeeded but no token received.");
-                }
+                // 🔥 Load tasks into cache right after login
+                await TaskCacheService.LoadTasksAsync();
+
+                await JS.InvokeVoidAsync("alert", "✅ Login successful!");
+                Nav.NavigateTo("/dashboard", forceLoad: true); // force reload if needed
             }
             else
             {
-                var error = await response.Content.ReadAsStringAsync();
-                await JS.InvokeVoidAsync("alert", $"❌ Login failed:\n{error}");
+                await JS.InvokeVoidAsync("alert", "⚠️ Login succeeded but no token received.");
             }
         }
-        catch (Exception ex)
+        else
         {
-            await JS.InvokeVoidAsync("alert", $"⚠️ Something went wrong:\n{ex.Message}");
+            var error = await response.Content.ReadAsStringAsync();
+            await JS.InvokeVoidAsync("alert", $"❌ Login failed:\n{error}");
         }
     }
+    catch (Exception ex)
+    {
+        await JS.InvokeVoidAsync("alert", $"⚠️ Something went wrong:\n{ex.Message}");
+    }
+}
 
     private class LoginModel
     {

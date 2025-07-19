@@ -1,19 +1,21 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace TaskFlow.Models;
-
-public class TaskModel
+namespace TaskFlow.Models
 {
-    public string Id { get; set; } = Guid.NewGuid().ToString();
 
-    [Required]
-    public string Title { get; set; } = string.Empty;
-    public string? Description { get; set; }
+    public class TaskModel
+    {
+        public string Id { get; set; } = Guid.NewGuid().ToString();
 
-    [Required]
-    public DateTime DueDate { get; set; } = DateTime.Today;
-    public string? Priority { get; set; }
-    public string? Tag { get; set; }
+        [Required]
+        public string Title { get; set; } = string.Empty;
+        public string? Description { get; set; }
 
-    public bool IsCompleted { get; set; } = false;
+        [Required]
+        public DateTime DueDate { get; set; } = DateTime.Today;
+        public string? PriorityLevel { get; set; }
+        public string? Tag { get; set; }
+
+        public bool IsCompleted { get; set; } = false;
+    }
 }

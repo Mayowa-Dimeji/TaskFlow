@@ -36,6 +36,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TdGF0Q2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/may/projects/TaskFlow/Components/TaskCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/may/projects/TaskFlow/Components/TaskCardList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrQ2FyZExpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/may/projects/TaskFlow/Layout/AddTaskIntro.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L0FkZFRhc2tJbnRyby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

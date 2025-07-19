@@ -1,7 +1,12 @@
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Authorization
 @using TaskFlow.Components
+@using TaskFlow.Services
+@using TaskFlow.Models
 @inject ITokenService TokenService
+@inject TaskService TaskService
+@inject TaskCacheService TaskCacheService
+
 @inject AuthenticationStateProvider AuthProvider
 
 <AuthorizeView>
@@ -26,11 +31,11 @@
                 </div>
 
                 <!-- Stat Cards -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
+                <div class="md:grid grid-cols-2 md:grid-cols-4 gap-4 mt-2 hidden ">
                     <StatCard Title="Total Tasks" Value="@Stats.Total" />
-                    <StatCard Title="Completed" Value="@Stats.Completed" TextColor="text-green-500" />
-                    <StatCard Title="Pending" Value="@Stats.Pending" TextColor="text-yellow-500" />
-                    <StatCard Title="Overdue" Value="@Stats.Overdue" TextColor="text-red-500" />
+                    <StatCard Title="Completed" Value="@Stats.Completed" TextColor="text-green-500 dark:text-green-400" />
+                    <StatCard Title="Pending" Value="@Stats.Pending" TextColor="text-yellow-500 dark:text-yellow-400" />
+                    <StatCard Title="Overdue" Value="@Stats.Overdue" TextColor="text-red-500 dark:text-red-400" />
                 </div>
             </section>
         }
@@ -38,7 +43,7 @@
         {
             <p class="p-4 text-gray-400">Loading user info...</p>
         }
-        <AddTaskModal IsVisible="@showAddModal" OnClose="ToggleModal" OnSubmitSuccess="HandleTaskCreated" />
+        <AddTaskModal IsVisible="@showAddModal" OnClose="ToggleModal" OnSubmitSuccess="HandleTaskCreated" IsEdit="false" />
 
     </Authorized>
     <NotAuthorized>
@@ -49,21 +54,26 @@
 @code {
     [Parameter] public TaskStats Stats { get; set; } = new TaskStats();
     private string? username;
+     private bool showAddModal = false;
 
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthProvider.GetAuthenticationStateAsync();
         var user = authState.User;
+        TaskCacheService.OnTasksChanged += HandleTasksChanged;
+        await TaskService.GetTaskStatsAsync() ;
 
         if (user.Identity?.IsAuthenticated ?? false)
         {
             username = await TokenService.GetUsername();
+            await TaskCacheService.LoadTasksAsync(); // ✅ Load into cache
+             UpdateStatsFromCache(); 
         }
 
         // Optional: call your GetTasks endpoint and set Stats dynamically
         // For now, if no API call, Stats will default to all zeroes
     }
-    private bool showAddModal = false;
+   
 
 private void ToggleModal()
 {
@@ -72,16 +82,44 @@ private void ToggleModal()
 
 private async Task HandleTaskCreated()
 {
-    // Optional: Refresh task stats or list after a new task is created
-    Console.WriteLine("✅ Task created! Refresh if needed.");
+    await TaskCacheService.LoadTasksAsync(); // Refresh cache
+    UpdateStatsFromCache();
+    showAddModal = false;
+    StateHasChanged();
 }
 
 
-    public class TaskStats
+private void UpdateStatsFromCache()
+{
+    var tasks = TaskCacheService.CachedTasks;
+    var now = DateTime.UtcNow;
+
+    Stats = new TaskStats
+    {
+        Total = tasks.Count,
+        Completed = tasks.Count(t => t.IsCompleted),
+        Pending = tasks.Count(t => !t.IsCompleted),
+        Overdue = tasks.Count(t => !t.IsCompleted && t.DueDate < now)
+    };
+}
+
+private async void HandleTasksChanged()
+{
+    var stats = await TaskCacheService.GetStatsAsync();
+    Stats = stats;
+    StateHasChanged();
+}
+
+public void Dispose()
+{
+    TaskCacheService.OnTasksChanged -= HandleTasksChanged;
+}
+
+    @* public class TaskStats
     {
         public int Total { get; set; }
         public int Completed { get; set; }
         public int Pending { get; set; }
         public int Overdue { get; set; }
-    }
+    } *@
 }

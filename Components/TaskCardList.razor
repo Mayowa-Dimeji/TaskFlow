@@ -1,0 +1,118 @@
+@using TaskFlow.Models
+@using TaskFlow.Services
+@inject ITokenService TokenService
+@inject TaskService TaskService
+@inject TaskCacheService CacheService
+
+<div class="flex gap-2 md:gap-4 mb-1 flex-wrap p-4 items-center  ">
+    @foreach (var btn in FilterOptions)
+    {
+        <button class="@GetButtonClass(btn) rounded" @onclick="() => ApplyFilter(btn)">
+            @btn
+        </button>
+    }
+</div>
+
+@if (FilteredTasks?.Any() == true)
+{
+    <div class="space-y-4 px-4  py-8 overflow-y-auto max-h-[70vh] ">
+        @foreach (var task in FilteredTasks)
+        {
+            <TaskCard Task="task" OnEdit="OpenEditModal"
+          OnDelete="@(id => RefreshTasks(id))" />
+        }
+    </div>
+}
+else
+{
+    <p class="text-sm text-gray-400 mt-4">No tasks found for selected filter.</p>
+}
+<AddTaskModal IsVisible="@showEditModal"
+              IsEdit="true"
+              TaskModel="taskBeingEdited"
+              OnClose="@(() => showEditModal = false)"
+              OnSubmitSuccess="RefreshTasksAfterUpdate" />
+
+
+@code {
+    private List<TaskModel> AllTasks = new();
+    private List<TaskModel> FilteredTasks = new();
+    private string SelectedFilter = "All Tasks";
+
+    private readonly string[] FilterOptions = ["All Tasks", "Today", "This Week", "Completed", "Pending"];
+
+private TaskModel taskBeingEdited = new();
+private bool showEditModal = false;
+
+private void OpenEditModal(TaskModel task)
+{
+    taskBeingEdited = task;
+    showEditModal = true;
+}
+private async Task RefreshTasksAfterUpdate()
+{
+   showEditModal = false;
+    AllTasks = CacheService.CachedTasks;
+    ApplyFilter(SelectedFilter);
+    await Task.CompletedTask;
+}
+
+private async Task RefreshTasks(string deletedTaskId)
+{
+    @* await TaskService.ClearCache(); // optional *@
+    AllTasks = CacheService.CachedTasks;
+    ApplyFilter(SelectedFilter);
+    await Task.CompletedTask;
+}
+
+protected override async Task OnInitializedAsync()
+{
+    var token = await TokenService.GetToken();
+    if (string.IsNullOrWhiteSpace(token)) return;
+
+    await CacheService.LoadTasksAsync(); // 🔄 Load cache from API
+    AllTasks = CacheService.CachedTasks;
+
+    CacheService.OnTasksChanged += RefreshUI; // 🔔 Subscribe to updates
+    ApplyFilter(SelectedFilter);
+}
+
+private void ApplyFilter(string filter)
+{
+    SelectedFilter = filter;
+
+    // 🔁 Pull fresh state from cache each time you filter
+    AllTasks = CacheService.CachedTasks;
+
+    var today = DateTime.UtcNow.Date;
+    var weekEnd = today.AddDays(7);
+
+    FilteredTasks = filter switch
+    {
+        "Today" => AllTasks.Where(t => t.DueDate.Date == today).ToList(),
+        "This Week" => AllTasks.Where(t => t.DueDate.Date >= today && t.DueDate.Date <= weekEnd).ToList(),
+        "Completed" => AllTasks.Where(t => t.IsCompleted).ToList(),
+        "Pending" => AllTasks.Where(t => !t.IsCompleted).ToList(),
+        _ => AllTasks
+    };
+}
+
+    public void Dispose()
+{
+    CacheService.OnTasksChanged -= RefreshUI;
+}
+
+private void RefreshUI()
+{
+    AllTasks = CacheService.CachedTasks;
+    ApplyFilter(SelectedFilter);
+    StateHasChanged(); // force re-render
+}
+
+
+    private string GetButtonClass(string filter) =>
+        $"px-3 py-1 rounded-xl text-sm font-medium transition " +
+        (SelectedFilter == filter
+            ? "bg-indigo-600 text-white"
+            : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-indigo-100");
+}

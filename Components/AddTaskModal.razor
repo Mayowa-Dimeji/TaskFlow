@@ -1,6 +1,9 @@
 @using System.ComponentModel.DataAnnotations
 @using TaskFlow.Models
+@using TaskFlow.Services
 @inject ITokenService TokenService
+@inject TaskCacheService TaskCacheService
+
 
 
 @inject HttpClient Http
@@ -29,7 +32,7 @@
                     {
                 <button type="button"
                     class="@GetPriorityButtonClass(level)"
-                    @onclick="() => TaskModel.Priority = level">
+                    @onclick="() => TaskModel.PriorityLevel = level">
                 @level.ToUpper()
                 </button>
         }
@@ -57,8 +60,8 @@
             </div>
 
             <div class="mt-6 flex justify-between">
-                <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded" @onclick="Close">Cancel</button>
-                <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
+                <button type="button" class="bg-gray-500  text-white px-4 py-2 rounded" @onclick="Close">Cancel</button>
+                <button type="submit" class="bg-indigo-600 dark:bg-indigo-700 text-white px-4 py-2 rounded hover:bg-indigo-700">
                     @(IsEdit ? "Update Task" : "Create Task")
                 </button>
             </div>
@@ -105,8 +108,13 @@ private async Task HandleSubmit()
 
     if (response.IsSuccessStatusCode)
     {
+         if (IsEdit)
+            TaskCacheService.UpdateTask(TaskModel);
+        else
+            TaskCacheService.AddTask(TaskModel);
+        Close(); // Close modal on success
         await OnSubmitSuccess.InvokeAsync();
-        await OnClose.InvokeAsync(false);
+        
     }
     else
     {
@@ -123,15 +131,15 @@ private string GetTagButtonClass(string tag)
 
     var baseClass = tag switch
     {
-        "personal" => "text-xs font-semibold px-3 py-1 rounded-full border transition text-purple-800 shadow-xs",
-        "work" => "text-xs font-semibold px-3 py-1 rounded-full border transition text-blue-800 shadow-xs",
-        _ => "text-xs font-semibold px-3 py-1 rounded-full border transition text-gray-800 shadow-xs"
+        "personal" => "text-xs font-semibold px-3 py-1 rounded-full border transition text-purple-800 shadow-xs dark:text-purple-400",
+        "work" => "text-xs font-semibold px-3 py-1 rounded-full border transition text-blue-800 shadow-xs dark:text-blue-400",
+        _ => "text-xs font-semibold px-3 py-1 rounded-full border transition text-gray-800 shadow-xs dark:text-gray-400"
     };
 
     var activeStyle = tag switch
     {
-        "personal" => "bg-purple-100 text-purple-800 border-purple-400",
-        "work" => "bg-blue-100 text-blue-800 border-blue-400",
+        "personal" => "bg-purple-100 text-purple-800 border-purple-400 dark:bg-purple-200 dark:text-purple-800 dark:border-purple-400",
+        "work" => "bg-blue-100 text-blue-800 border-blue-400 dark:bg-blue-200 dark:text-blue-800 dark:border-blue-400",
         _ => "bg-gray-100 text-gray-800 border-gray-400"
     };
 
@@ -143,22 +151,22 @@ private string GetTagButtonClass(string tag)
 
 private string GetPriorityButtonClass(string level)
 {
-    var isActive = TaskModel.Priority == level;
+    var isActive = TaskModel.PriorityLevel == level;
     
     var baseClass = level switch
     {
-        "low" => "text-xs font-semibold px-3 py-1 rounded-full border shadow-xs text-green-800",
-        "medium" => "text-xs font-semibold px-3 py-1 rounded-full border shadow-xs text-yellow-800",
-        "high" => "text-xs font-semibold px-3 py-1 rounded-full border shadow-xs text-red-800",
-        _ => "text-xs font-semibold px-3 py-1 rounded-full border shadow-xs text-gray-800"
+        "low" => "text-xs font-semibold px-3 py-1 rounded-full border shadow-xs text-green-800 dark:text-green-400",
+        "medium" => "text-xs font-semibold px-3 py-1 rounded-full border shadow-xs text-yellow-800 dark:text-yellow-400",
+        "high" => "text-xs font-semibold px-3 py-1 rounded-full border shadow-xs text-red-800 dark:text-red-400",
+        _ => "text-xs font-semibold px-3 py-1 rounded-full border shadow-xs text-gray-800 dark:text-gray-400"
     };
 
     var activeStyle = level switch
     {
-        "low" => "bg-green-100 text-green-800 border-green-400",
-        "medium" => "bg-yellow-100 text-yellow-800 border-yellow-400",
-        "high" => "bg-red-100 text-red-800 border-red-400",
-        _ => "bg-gray-100 text-gray-800 border-gray-400"
+        "low" => "bg-green-100 text-green-800 border-green-400 dark:bg-green-200 dark:text-green-800 dark:border-green-400",
+        "medium" => "bg-yellow-100 text-yellow-800 border-yellow-400 dark:bg-yellow-200 dark:text-yellow-800 dark:border-yellow-400",
+        "high" => "bg-red-100 text-red-800 border-red-400 dark:bg-red-200 dark:text-red-800 dark:border-red-400",
+        _ => "bg-gray-100 text-gray-800 border-gray-400 dark:bg-gray-200 dark:text-gray-800 dark:border-gray-400"
     };
 
     var inactive = "opacity-50 hover:opacity-100 transition";
