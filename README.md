@@ -25,7 +25,7 @@ TaskFlow is a modern, responsive front-end application built using **Blazor WebA
 
 - **Blazor WebAssembly**
 - **Tailwind CSS**
-- **.NET 8**
+- **.NET 9**
 - **Azure Functions (API Backend)**
 - **JWT Authentication**
 - **State Management via Dependency Injection**
