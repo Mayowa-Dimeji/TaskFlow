@@ -81,7 +81,7 @@ TaskFlow is a modern, responsive front-end application built using **Blazor WebA
 ## 🧪 Setup Instructions
 
 ```bash
-git clone https://github.com/yourusername/TaskFlow.git
+git clone https://github.com/Mayowa-Dimeji/TaskFlow.git
 cd TaskFlow
 dotnet run
 ```
