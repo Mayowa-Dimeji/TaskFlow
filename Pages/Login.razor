@@ -2,6 +2,7 @@
 @layout LoginLayout
 @using System.ComponentModel.DataAnnotations
 @using TaskFlow.Services
+@using TaskFlow.Components
 @inject HttpClient Http
 @inject ITokenService TokenService
 
@@ -31,13 +32,28 @@
     <p class="mt-4 text-sm text-center ">
         Don't have an account? <a href="/register" class="text-indigo-600 hover:underline">Sign up</a>
     </p>
+
+    @if (showNotification)
+    {
+        <AppNotification Message="@notificationMessage" Type="@notificationType" OnHide="() => showNotification = false" />
+    }
 </section>
 
 @code {
     private LoginModel loginModel = new();
+    private bool showNotification = false;
+    private string notificationMessage = string.Empty;
+    private string notificationType = "success";
+    protected override void OnInitialized()
+    {
+        showNotification = false;
+        // Check if user is already logged in
+       
+    }
 
  private async Task HandleLogin()
 {
+    showNotification=true;
     try
     {
         var response = await Http.PostAsJsonAsync(
@@ -49,31 +65,39 @@
         {
             var json = await response.Content.ReadFromJsonAsync<TokenResponse>();
             var token = json?.Token;
+                            notificationMessage = "✅ Login successful!";
+                notificationType = "success";
+                showNotification = true;
 
             if (!string.IsNullOrEmpty(token))
             {
                 TokenService.SaveToken(token);
+ // ✅ AFTER setting message
 
-                // 🔥 Load tasks into cache right after login
                 await TaskCacheService.LoadTasksAsync();
-
-                await JS.InvokeVoidAsync("alert", "✅ Login successful!");
-                Nav.NavigateTo("/dashboard", forceLoad: true); // force reload if needed
+                await Task.Delay(1500);
+                Nav.NavigateTo("/dashboard", forceLoad: true);
             }
             else
             {
-                await JS.InvokeVoidAsync("alert", "⚠️ Login succeeded but no token received.");
+                notificationMessage = "❌ Login failed.";
+                notificationType = "error";
+                showNotification = true;
             }
         }
         else
         {
             var error = await response.Content.ReadAsStringAsync();
-            await JS.InvokeVoidAsync("alert", $"❌ Login failed:\n{error}");
+            notificationMessage = $"❌ Login failed:\n{error}";
+            notificationType = "error";
+            showNotification = true;
         }
     }
     catch (Exception ex)
     {
-        await JS.InvokeVoidAsync("alert", $"⚠️ Something went wrong:\n{ex.Message}");
+        notificationMessage = $"⚠️ Something went wrong:\n{ex.Message}";
+        notificationType = "error";
+        showNotification = true;
     }
 }
 

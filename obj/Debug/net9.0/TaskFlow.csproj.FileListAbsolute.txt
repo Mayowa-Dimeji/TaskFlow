@@ -206,8 +206,8 @@
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/icudt_CJK.tjcz0u77k5.dat
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/icudt_EFIGS.tptq2av103.dat
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/icudt_no_CJK.lfu7j35m59.dat
-/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.1qjs14x4sc.wasm
-/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.g3f4nmys1n.pdb
+/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.4cej98kozq.wasm
+/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.4lmaju6yis.pdb
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/blazor.boot.json
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/blazor.webassembly.js.gz
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/Blazored.Toast.4gbrhkrum5.wasm.gz
@@ -417,8 +417,8 @@
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/icudt_CJK.tjcz0u77k5.dat.gz
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/icudt_EFIGS.tptq2av103.dat.gz
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/icudt_no_CJK.lfu7j35m59.dat.gz
-/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.1qjs14x4sc.wasm.gz
-/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.g3f4nmys1n.pdb.gz
+/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.4cej98kozq.wasm.gz
+/Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/TaskFlow.4lmaju6yis.pdb.gz
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/wwwroot/_framework/blazor.boot.json.gz
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/package-lock.json
 /Users/may/projects/TaskFlow/bin/Debug/net9.0/package.json
@@ -846,8 +846,8 @@
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/scopedcss/bundle/TaskFlow.styles.css
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/blazor.build.boot-extension.json
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/blazor.boot.json
-/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/e8n5ge1bhn-ayrvop0bib.gz
-/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/5h82vsf4v9-iamo9mo7qz.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/e8n5ge1bhn-fxfhqeojef.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/5h82vsf4v9-01hhwsg703.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/j4ksgl9kwa-r4diwikgdy.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/k0bgn2xxs4-dtqpyjg990.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/d0ne0mrdyj-bqjiyaj88i.gz
@@ -1105,9 +1105,9 @@
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/8ca24q5vdi-tjcz0u77k5.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/i73h9tfczo-tptq2av103.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/9e3khqay9g-lfu7j35m59.gz
-/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/nhala78nx3-1qjs14x4sc.gz
-/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/guv1hpirhb-g3f4nmys1n.gz
-/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/z6p70nt3ug-sh9dzn4u66.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/nhala78nx3-4cej98kozq.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/guv1hpirhb-4lmaju6yis.gz
+/Users/may/projects/TaskFlow/obj/Debug/net9.0/compressed/z6p70nt3ug-cenpu3qywv.gz
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/staticwebassets.build.json
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/staticwebassets.build.json.cache
 /Users/may/projects/TaskFlow/obj/Debug/net9.0/staticwebassets.development.json

@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BZGRUYXNrTW9kYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/may/projects/TaskFlow/Components/AppNotification.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcHBOb3RpZmljYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/may/projects/TaskFlow/Components/StatCard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TdGF0Q2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

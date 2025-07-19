@@ -38,7 +38,7 @@
             </p>
 
             <!-- Badges -->
-            <div class="flex gap-2 mt-2 text-xs">
+            <div class="flex gap-2 mt-2 text-xs ">
                 @if (!string.IsNullOrEmpty(Task.PriorityLevel))
                 {
                     <span class="@GetPriorityClass(Task.PriorityLevel)">@Capitalize(Task.PriorityLevel) Priority</span>
@@ -76,7 +76,7 @@
     <!-- Dropdown Menu -->
     @if (showMenu)
     {
-        <ul class="absolute right-0 top-8 w-32 bg-white/50 dark:bg-gray-600/50 rounded-md shadow-md text-sm z-50 border dark:border-gray-600">
+        <ul class="absolute right-0 top-8 w-32 bg-white/50 dark:bg-gray-600/50 rounded-md shadow-md text-sm z-50 border dark:border-gray-600 justify-items-start items-center">
             <li>
                 <button @onclick="HandleEdit" class="w-full text-left px-4 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-600 dark:text-white">
                      Edit
@@ -90,6 +90,11 @@
         </ul>
     }
 </div>
+@if (showNotification)
+{
+    <AppNotification Message="@notificationMessage" Type="@notificationType" OnHide="() => showNotification = false" />
+}
+
 
 </div>
 
@@ -97,6 +102,10 @@
     [Parameter] public TaskModel Task { get; set; } = new();
     [Parameter] public EventCallback<TaskModel> OnEdit { get; set; } // to open modal from parent
    [Parameter] public EventCallback<string> OnDelete { get; set; } // to notify parent after delete
+    private bool showNotification = false;
+private string notificationMessage = string.Empty;
+private string notificationType = "success";
+
 
         private bool showMenu = false;
 
@@ -127,16 +136,25 @@ private async Task HandleDelete()
 
     if (response.IsSuccessStatusCode)
     {
-        Console.WriteLine("✅ Task deleted");
-        CacheService.RemoveTask(Task.Id); // 🔥 Update cache
+        notificationMessage = "🗑 Task deleted successfully!";
+        notificationType = "success";
+        showNotification = true;
+
+        await System.Threading.Tasks.Task.Delay(1000); // Give user visual feedback
+
+        CacheService.RemoveTask(Task.Id); // Update cache
+
         if (OnDelete.HasDelegate)
             await OnDelete.InvokeAsync(Task.Id);
     }
     else
     {
-        Console.WriteLine("❌ Failed to delete task");
+        notificationMessage = "❌ Failed to delete task.";
+        notificationType = "error";
+        showNotification = true;
     }
 }
+
 
 
 

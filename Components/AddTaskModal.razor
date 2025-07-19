@@ -1,6 +1,7 @@
 @using System.ComponentModel.DataAnnotations
 @using TaskFlow.Models
 @using TaskFlow.Services
+@using TaskFlow.Components
 @inject ITokenService TokenService
 @inject TaskCacheService TaskCacheService
 
@@ -67,6 +68,10 @@
             </div>
         </EditForm>
     </div>
+            @if (showNotification)
+    {
+        <AppNotification Message="@notificationMessage" Type="@notificationType" OnHide="() => showNotification = false" />
+    }
 </div>
 
 @code {
@@ -83,6 +88,15 @@
     private void Close() => OnClose.InvokeAsync(false);
 
     private void CloseOnOutsideClick() => OnClose.InvokeAsync(false);
+          private bool showNotification = false;
+    private string notificationMessage = string.Empty;
+    private string notificationType = "success";
+            protected override void OnInitialized()
+    {
+        showNotification = false;
+        // Check if user is already logged in
+       
+    }
 
 private async Task HandleSubmit()
 {
@@ -91,11 +105,7 @@ private async Task HandleSubmit()
         : "https://taskmanager-func-xyz-evghhpandvc6fvek.ukwest-01.azurewebsites.net/api/createtask";
 
     var token = await TokenService.GetToken();
-    if (string.IsNullOrWhiteSpace(token))
-    {
-        Console.WriteLine("❌ No token found. User might not be authenticated.");
-        return;
-    }
+    if (string.IsNullOrWhiteSpace(token)) return;
 
     var request = new HttpRequestMessage(HttpMethod.Post, endpoint)
     {
@@ -108,20 +118,32 @@ private async Task HandleSubmit()
 
     if (response.IsSuccessStatusCode)
     {
-         if (IsEdit)
+        notificationMessage = IsEdit ? "✅ Task updated successfully!" : "✅ Task created successfully!";
+        notificationType = "success";
+        showNotification = true;
+
+        if (IsEdit)
             TaskCacheService.UpdateTask(TaskModel);
         else
             TaskCacheService.AddTask(TaskModel);
-        Close(); // Close modal on success
+
+        // ✅ Delay before closing to allow UI to show message
+        await Task.Delay(1000);
+
+        Close(); 
         await OnSubmitSuccess.InvokeAsync();
-        
     }
     else
     {
         var error = await response.Content.ReadAsStringAsync();
-        Console.WriteLine($"❌ Failed to create task: {error}");
+        notificationMessage = IsEdit ? "❌ Failed to update task." : "❌ Failed to create task.";
+        notificationType = "error";
+        showNotification = true;
+
+        Console.WriteLine($"❌ Error: {error}");
     }
 }
+
 
 
 

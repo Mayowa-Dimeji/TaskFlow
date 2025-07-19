@@ -1,13 +1,14 @@
 <!-- Shared/BottomNav.razor -->
-<nav class="fixed bottom-0 inset-x-0 bg-white dark:bg-gray-700 border-t flex justify-around items-center py-4 shadow-md sm:hidden">
+<div class="fixed bottom-0 inset-x-0 bg-white dark:bg-gray-700 border-t flex justify-around items-center py-4 shadow-md sm:hidden">
+
     @foreach (var item in navItems)
     {
-        <button class="flex flex-col items-center text-xs text-gray-600 hover:text-indigo-600">
+        <button class="flex flex-col items-center text-xs bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:text-indigo-600">
             <div>@item.Icon</div>
             <span>@item.Label</span>
         </button>
     }
-</nav>
+</div>
 
 @code {
     private record NavItem(string Label, RenderFragment Icon);
