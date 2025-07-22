@@ -206,8 +206,6 @@
 /Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/icudt_CJK.tjcz0u77k5.dat
 /Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/icudt_EFIGS.tptq2av103.dat
 /Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/icudt_no_CJK.lfu7j35m59.dat
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.jh3w9yr7gi.wasm
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.vp3a7m4zk3.pdb
 /Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/blazor.boot.json
 /Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/blazor.webassembly.js.gz
 /Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/Blazored.Toast.4gbrhkrum5.wasm.gz
@@ -417,8 +415,6 @@
 /Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/icudt_CJK.tjcz0u77k5.dat.gz
 /Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/icudt_EFIGS.tptq2av103.dat.gz
 /Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/icudt_no_CJK.lfu7j35m59.dat.gz
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.jh3w9yr7gi.wasm.gz
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.vp3a7m4zk3.pdb.gz
 /Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/blazor.boot.json.gz
 /Users/may/projects/TaskFlow/bin/Release/net9.0/package-lock.json
 /Users/may/projects/TaskFlow/bin/Release/net9.0/package.json
@@ -1106,9 +1102,6 @@
 /Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/8ca24q5vdi-tjcz0u77k5.gz
 /Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/i73h9tfczo-tptq2av103.gz
 /Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/9e3khqay9g-lfu7j35m59.gz
-/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/nhala78nx3-jh3w9yr7gi.gz
-/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/guv1hpirhb-vp3a7m4zk3.gz
-/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/z6p70nt3ug-qp8takqvu5.gz
 /Users/may/projects/TaskFlow/obj/Release/net9.0/staticwebassets.build.json
 /Users/may/projects/TaskFlow/obj/Release/net9.0/staticwebassets.build.json.cache
 /Users/may/projects/TaskFlow/obj/Release/net9.0/staticwebassets.development.json
@@ -1118,3 +1111,11 @@
 /Users/may/projects/TaskFlow/obj/Release/net9.0/refint/TaskFlow.dll
 /Users/may/projects/TaskFlow/obj/Release/net9.0/TaskFlow.pdb
 /Users/may/projects/TaskFlow/obj/Release/net9.0/ref/TaskFlow.dll
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.3mzdr44i9j.wasm
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.7sln48i14x.pdb
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.3mzdr44i9j.wasm.gz
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.7sln48i14x.pdb.gz
+/Users/may/projects/TaskFlow/bin/Release/net9.0/ staticwebapp.config.json
+/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/nhala78nx3-3mzdr44i9j.gz
+/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/guv1hpirhb-7sln48i14x.gz
+/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/z6p70nt3ug-1y6f2nneby.gz

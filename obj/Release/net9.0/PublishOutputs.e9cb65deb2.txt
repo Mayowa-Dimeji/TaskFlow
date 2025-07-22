@@ -1,0 +1,4 @@
+/Users/may/projects/TaskFlow/bin/Release/net9.0/publish/ staticwebapp.config.json
+/Users/may/projects/TaskFlow/bin/Release/net9.0/publish/package-lock.json
+/Users/may/projects/TaskFlow/bin/Release/net9.0/publish/swa-cli.config.json
+/Users/may/projects/TaskFlow/bin/Release/net9.0/publish/web.config
