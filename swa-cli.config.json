@@ -3,9 +3,10 @@
   "configurations": {
     "task-flow": {
       "appLocation": ".",
-      "outputLocation": "bin/wwwroot",
-      "appBuildCommand": "dotnet build",
-      "run": "dotnetrun",
+      "outputLocation": "bin/Release/net9.0/publish/wwwroot",
+      "appBuildCommand": "dotnet publish -c Release",
+      "run": "dotnet run",
+
       "appDevserverUrl": "http://localhost:8000"
     }
   }
