@@ -26,7 +26,7 @@ protected override async Task OnInitializedAsync()
 
     if (!user.Identity?.IsAuthenticated ?? true)
     {
-        TokenService.SaveToken(token);
+        
         Nav.NavigateTo("/", forceLoad: true);
         return;
     }
