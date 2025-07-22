@@ -111,6 +111,10 @@ private async Task HandleSubmit()
     {
         Content = JsonContent.Create(TaskModel)
     };
+    if (IsEdit)
+    {
+        request.Method = HttpMethod.Put; // Use PUT for updates
+   }
 
     request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
@@ -124,11 +128,14 @@ private async Task HandleSubmit()
 
         if (IsEdit)
             TaskCacheService.UpdateTask(TaskModel);
-        else
+        else{
             TaskCacheService.AddTask(TaskModel);
+            TaskModel = new TaskModel();
+            }
 
         // ✅ Delay before closing to allow UI to show message
-        await Task.Delay(1000);
+        
+        await Task.Delay(500);
 
         Close(); 
         await OnSubmitSuccess.InvokeAsync();

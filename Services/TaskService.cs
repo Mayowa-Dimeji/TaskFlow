@@ -69,8 +69,17 @@ namespace TaskFlow.Services
                 if (string.IsNullOrWhiteSpace(token)) return false;
 
                 Http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                var updatePayload = new UpdateTaskDto
+                {
+                    Title = task.Title,
+                    Description = task.Description,
+                    IsCompleted = task.IsCompleted,
+                    PriorityLevel = task.PriorityLevel,
+                    Tags = task.Tag is not null ? [task.Tag] : null,
+                    DueDate = task.DueDate
+                };
 
-                var response = await Http.PutAsJsonAsync($"https://taskmanager-func-xyz-evghhpandvc6fvek.ukwest-01.azurewebsites.net/api/tasks/{task.Id}", task);
+                var response = await Http.PutAsJsonAsync($"https://taskmanager-func-xyz-evghhpandvc6fvek.ukwest-01.azurewebsites.net/api/tasks/{task.Id}", updatePayload);
 
                 return response.IsSuccessStatusCode;
             }

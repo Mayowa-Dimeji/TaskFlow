@@ -18,7 +18,8 @@
 
 @if (showMenu)
 {
-    <div class="absolute top-10 right-0 z-50 bg-white dark:bg-gray-600 rounded-md shadow-md text-sm w-40 md:w-48">
+    <div @onclick="CloseDropdownIfOpen" class="fixed inset-0 z-40"></div>
+    <div class="absolute top-10 right-0 z-50 bg-white dark:bg-gray-600 rounded-md shadow-md text-sm w-40 md:w-48" @onclick:stopPropagation>
         <div class="hidden md:block md:bg-white dark:bg-gray-600  rounded-t-md justify-items-start items-center">
             <button class="w-full text-left px-4 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-600  ">
                 Tasks
@@ -47,8 +48,17 @@
 </section>
 @code {
     private bool showMenu = false;
+    
 
     private void ToggleMenu() => showMenu = !showMenu;
+
+        private void CloseDropdownIfOpen()
+    {
+        if (showMenu)
+        {
+            showMenu = false;
+        }
+    }
 
     private void Logout()
     {
