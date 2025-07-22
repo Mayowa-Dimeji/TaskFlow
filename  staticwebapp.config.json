@@ -7,10 +7,6 @@
     {
       "route": "/dashboard",
       "allowedRoles": ["authenticated"]
-    },
-    {
-      "route": "/*",
-      "rewrite": "/index.html"
     }
   ],
   "responseOverrides": {
