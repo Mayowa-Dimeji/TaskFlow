@@ -1,13 +1,17 @@
 @page "/"
 @layout LoginLayout
 @using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Authorization
 @using TaskFlow.Services
 @using TaskFlow.Components
+
 @inject HttpClient Http
 @inject ITokenService TokenService
 
 @inject NavigationManager Nav
 @inject TaskCacheService TaskCacheService
+@inject AuthenticationStateProvider AuthProvider
+
 
 @inject IJSRuntime JS
 
@@ -68,18 +72,22 @@
              notificationMessage = "✅ Login successful!";
                 notificationType = "success";
                 showNotification = true;
-                await TokenService.SaveToken(token!);
-
-            if (!string.IsNullOrEmpty(token))
-            {
                 
- // ✅ AFTER setting message
 
-                await TaskCacheService.LoadTasksAsync();
-                
-                await Task.Delay(500);
-                Nav.NavigateTo("/dashboard", forceLoad: true);
-            }
+if (!string.IsNullOrEmpty(token))
+{
+    await TokenService.SaveToken(token!);
+
+    if (AuthProvider is JwtAuthProvider jwtAuth)
+    {
+        jwtAuth.NotifyUserAuthentication(token!);
+    }
+
+    await TaskCacheService.LoadTasksAsync();
+    await Task.Delay(500);
+    Nav.NavigateTo("/dashboard", forceLoad: true);
+}
+
             else
             {
                 notificationMessage = "❌ Login failed.";
