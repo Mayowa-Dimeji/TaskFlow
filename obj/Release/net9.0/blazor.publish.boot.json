@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "TaskFlow",
   "resources": {
-    "hash": "sha256-ycOIat4Gv15qKXyd4/msZENFVdUf7KB5BdYKHnV2pR0=",
+    "hash": "sha256-3qCMntp8z6yV/FSDcWyRnEXk8saaMHIrkUMmzT+CE2Y=",
     "fingerprinting": {
       "Blazored.Toast.4gbrhkrum5.wasm": "Blazored.Toast.wasm",
       "Microsoft.AspNetCore.Authorization.vsidgb9lgd.wasm": "Microsoft.AspNetCore.Authorization.wasm",
@@ -58,7 +58,7 @@
       "System.Threading.zcb42vnja5.wasm": "System.Threading.wasm",
       "System.cunp5qiwjj.wasm": "System.wasm",
       "System.Private.CoreLib.n9u8n8b722.wasm": "System.Private.CoreLib.wasm",
-      "TaskFlow.ww9lsj7p31.wasm": "TaskFlow.wasm",
+      "TaskFlow.k6isbv3s8k.wasm": "TaskFlow.wasm",
       "dotnet.js": "dotnet.js",
       "dotnet.native.rtblh4npr3.js": "dotnet.native.js",
       "dotnet.native.aqhezbunpl.wasm": "dotnet.native.wasm",
@@ -139,7 +139,7 @@
       "System.Text.RegularExpressions.3zydt3n8n9.wasm": "sha256-sXTH9c57ccmOHrE+Bpsiewg0xWGtHrbl8KBKpTJW9VA=",
       "System.Threading.zcb42vnja5.wasm": "sha256-fZ9o2IQTIELEttSIeZ1yev0uL+0qIYnwOC1p/5RM/0k=",
       "System.cunp5qiwjj.wasm": "sha256-DM5iEENhrifGKn33Y7cqRzxC0OtHXYOKO13icwIazj8=",
-      "TaskFlow.ww9lsj7p31.wasm": "sha256-kGLkITxjDNTZO11J33nRl6f3f592KrFpxnSlwtjVGTs="
+      "TaskFlow.k6isbv3s8k.wasm": "sha256-DEK8aN3N2O9oQb1U5OZ/h+QYY0bzyv1OE+2jk1bl27M="
     }
   },
   "cacheBootResources": true,

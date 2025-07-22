@@ -1112,10 +1112,10 @@
 /Users/may/projects/TaskFlow/obj/Release/net9.0/TaskFlow.pdb
 /Users/may/projects/TaskFlow/obj/Release/net9.0/ref/TaskFlow.dll
 /Users/may/projects/TaskFlow/bin/Release/net9.0/ staticwebapp.config.json
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.ww9lsj7p31.wasm
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.jvm3i4d858.pdb
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.ww9lsj7p31.wasm.gz
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.jvm3i4d858.pdb.gz
-/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/nhala78nx3-ww9lsj7p31.gz
-/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/guv1hpirhb-jvm3i4d858.gz
-/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/z6p70nt3ug-c7oj3u924z.gz
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.k6isbv3s8k.wasm
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.lzinogm8bu.pdb
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.k6isbv3s8k.wasm.gz
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.lzinogm8bu.pdb.gz
+/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/nhala78nx3-k6isbv3s8k.gz
+/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/guv1hpirhb-lzinogm8bu.gz
+/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/z6p70nt3ug-vb1ro6j2ee.gz
