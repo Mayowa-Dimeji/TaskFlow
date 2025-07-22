@@ -19,15 +19,19 @@
 
 @code {
     private TaskStats stats = new();
-    protected override async Task OnInitializedAsync()
-    {
-        var authState = await AuthProvider.GetAuthenticationStateAsync();
-        var user = authState.User;
-        stats = await TaskService.GetTaskStatsAsync() ?? new TaskStats();
+protected override async Task OnInitializedAsync()
+{
+    var authState = await AuthProvider.GetAuthenticationStateAsync();
+    var user = authState.User;
 
-        if (!user.Identity?.IsAuthenticated ?? true)
-        {
-            Nav.NavigateTo("/", forceLoad: true); // redirect to login
-        }
+    if (!user.Identity?.IsAuthenticated ?? true)
+    {
+        TokenService.SaveToken(token);
+        Nav.NavigateTo("/", forceLoad: true);
+        return;
     }
+
+    stats = await TaskService.GetTaskStatsAsync() ?? new TaskStats();
+}
+
 }
