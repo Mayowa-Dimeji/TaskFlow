@@ -68,6 +68,7 @@
              notificationMessage = "✅ Login successful!";
                 notificationType = "success";
                 showNotification = true;
+                await TokenService.SaveToken(token!);
 
             if (!string.IsNullOrEmpty(token))
             {
@@ -75,6 +76,7 @@
  // ✅ AFTER setting message
 
                 await TaskCacheService.LoadTasksAsync();
+                
                 await Task.Delay(500);
                 Nav.NavigateTo("/dashboard", forceLoad: true);
             }

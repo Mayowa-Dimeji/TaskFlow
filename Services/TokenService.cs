@@ -14,7 +14,7 @@ public class TokenService : ITokenService
         _js = js;
     }
 
-    public async void SaveToken(string token)
+    public async Task SaveToken(string token)
     {
         await _js.InvokeVoidAsync("localStorage.setItem", TokenKey, token);
     }
@@ -24,7 +24,7 @@ public class TokenService : ITokenService
         return await _js.InvokeAsync<string>("localStorage.getItem", TokenKey);
     }
 
-    public async void ClearToken()
+    public async Task ClearToken()
     {
         await _js.InvokeVoidAsync("localStorage.removeItem", TokenKey);
     }

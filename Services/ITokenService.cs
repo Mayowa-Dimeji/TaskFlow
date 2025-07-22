@@ -1,7 +1,7 @@
 public interface ITokenService
 {
     Task<string?> GetToken();
-    void SaveToken(string token);
-    void ClearToken();
+    Task SaveToken(string token);
+    Task ClearToken();
     Task<string?> GetUsername();
 }

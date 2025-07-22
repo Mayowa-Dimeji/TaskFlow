@@ -1,15 +1,11 @@
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Components.Authorization;
+using TaskFlow.Services;
 
-public class JwtAuthProvider : AuthenticationStateProvider
+public class JwtAuthProvider(ITokenService tokenService) : AuthenticationStateProvider
 {
-    private readonly ITokenService _tokenService;
-
-    public JwtAuthProvider(ITokenService tokenService)
-    {
-        _tokenService = tokenService;
-    }
+    private readonly ITokenService _tokenService = tokenService;
 
     public override async Task<AuthenticationState> GetAuthenticationStateAsync()
     {
