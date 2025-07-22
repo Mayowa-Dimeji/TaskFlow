@@ -27,14 +27,9 @@
                 @Task.Title
             </p>
             <p class="text-xs text-gray-500 mt-1">
-                @* @if (Task.IsCompleted)
-                { *@
-                    @* <span>Completed: @Task.DueDate.ToLocalTime().ToString("f", CultureInfo.CurrentCulture)</span> *@
-                @* }
-                else
-                { *@
+               
                     <span>Due: @Task.DueDate.ToLocalTime().ToString("f", CultureInfo.CurrentCulture)</span>
-                @* } *@
+               
             </p>
 
             <!-- Badges -->
@@ -105,6 +100,7 @@
     [Parameter] public TaskModel Task { get; set; } = new();
     [Parameter] public EventCallback<TaskModel> OnEdit { get; set; } // to open modal from parent
    [Parameter] public EventCallback<string> OnDelete { get; set; } // to notify parent after delete
+    [Parameter] public EventCallback OnComplete { get; set; } // to notify parent after completion toggle
     private bool showNotification = false;
 private string notificationMessage = string.Empty;
 private string notificationType = "success";
@@ -172,10 +168,10 @@ private async Task HandleDelete()
 {
     Task.IsCompleted = !Task.IsCompleted;
 
-    var success = await CacheService.UpdateTaskAsync(Task);
-    if (!success)
+    CacheService.UpdateTask(Task);
+    if (OnComplete.HasDelegate)
     {
-        Console.WriteLine("❌ Failed to update task status.");
+        await OnComplete.InvokeAsync();
     }
 }
 

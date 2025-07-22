@@ -137,8 +137,9 @@ private async Task HandleSubmit()
         
         await Task.Delay(500);
 
+await OnSubmitSuccess.InvokeAsync();
         Close(); 
-        await OnSubmitSuccess.InvokeAsync();
+        
     }
     else
     {
