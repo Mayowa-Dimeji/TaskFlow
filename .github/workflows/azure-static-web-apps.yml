@@ -1,0 +1,5 @@
+app_location: "." # or "." if everything is in root
+api_location: "api" # if you're using Azure Functions in a folder
+output_location: "bin/Release/net9.0/publish/wwwroot"
+
+app_build_command: "dotnet publish -c Release -o bin/Release/net9.0/publish"

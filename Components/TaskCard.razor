@@ -27,14 +27,14 @@
                 @Task.Title
             </p>
             <p class="text-xs text-gray-500 mt-1">
-                @if (Task.IsCompleted)
-                {
-                    <span>Completed: @Task.DueDate.ToLocalTime().ToString("f", CultureInfo.CurrentCulture)</span>
-                }
+                @* @if (Task.IsCompleted)
+                { *@
+                    @* <span>Completed: @Task.DueDate.ToLocalTime().ToString("f", CultureInfo.CurrentCulture)</span> *@
+                @* }
                 else
-                {
+                { *@
                     <span>Due: @Task.DueDate.ToLocalTime().ToString("f", CultureInfo.CurrentCulture)</span>
-                }
+                @* } *@
             </p>
 
             <!-- Badges -->

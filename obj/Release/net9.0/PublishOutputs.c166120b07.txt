@@ -1,0 +1,3 @@
+/Users/may/projects/TaskFlow/bin/package-lock.json
+/Users/may/projects/TaskFlow/bin/swa-cli.config.json
+/Users/may/projects/TaskFlow/bin/web.config
