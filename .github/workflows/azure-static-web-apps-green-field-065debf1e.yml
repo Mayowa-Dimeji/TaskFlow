@@ -35,7 +35,8 @@ jobs:
         run: dotnet publish -c Release -o bin/Release/net9.0/publish
 
       - name: Copy staticwebapp.config.json
-        run: cp wwwroot/staticwebapp.config.json bin/Release/net9.0/publish/wwwroot/
+        run: cp staticwebapp.config.json bin/Release/net9.0/publish/wwwroot/
+        working-directory: TaskFlow
 
       - name: Build And Deploy
         id: builddeploy
