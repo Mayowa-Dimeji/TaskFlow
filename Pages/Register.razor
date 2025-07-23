@@ -50,7 +50,7 @@
        
     }
 
-    private async Task HandleRegister()
+private async Task HandleRegister()
 {
     showNotification = true;
     try
@@ -64,27 +64,31 @@
         {
             notificationMessage = "🎉 Registration successful! Please log in.";
             notificationType = "success";
-            
 
-            // Wait to let the notification render
-            await Task.Delay(500); // You can tweak this delay
+            await Task.Delay(500);
             Nav.NavigateTo("/");
+        }
+        else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
+        {
+            // 🔥 Email already taken
+            notificationMessage = "❌ Email is already registered. Try logging in or use a different email.";
+            notificationType = "error";
         }
         else
         {
+            // Try to read custom error message
             var error = await response.Content.ReadAsStringAsync();
             notificationMessage = $"❌ Registration failed: {error}";
             notificationType = "error";
-            
         }
     }
     catch (Exception ex)
     {
         notificationMessage = $"❌ Registration failed:\n{ex.Message}";
         notificationType = "error";
-        
     }
 }
+
 
     public class RegisterModel
     {
