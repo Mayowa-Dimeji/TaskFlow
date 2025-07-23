@@ -1113,10 +1113,10 @@
 /Users/may/projects/TaskFlow/obj/Release/net9.0/ref/TaskFlow.dll
 /Users/may/projects/TaskFlow/bin/Release/net9.0/ staticwebapp.config.json
 /Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/fzdb5sijsw-ffelxvizvx.gz
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.cssn76gcpn.wasm
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.6cnu0qxyyz.pdb
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.cssn76gcpn.wasm.gz
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.6cnu0qxyyz.pdb.gz
-/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/nhala78nx3-cssn76gcpn.gz
-/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/guv1hpirhb-6cnu0qxyyz.gz
-/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/z6p70nt3ug-v9b9suicj9.gz
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.c5oryxjdiq.wasm
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.uqxiw0vvgo.pdb
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.c5oryxjdiq.wasm.gz
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.uqxiw0vvgo.pdb.gz
+/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/nhala78nx3-c5oryxjdiq.gz
+/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/guv1hpirhb-uqxiw0vvgo.gz
+/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/z6p70nt3ug-nev49w6lzm.gz
