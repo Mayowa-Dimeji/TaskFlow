@@ -5,9 +5,7 @@
       "appLocation": ".",
       "outputLocation": "bin/wwwroot",
       "appBuildCommand": "dotnet build",
-      "run": "dotnet run",
-
-      "appDevserverUrl": "http://localhost:8000"
+      "run": "dotnet run"
     }
   }
 }
