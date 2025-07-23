@@ -168,6 +168,8 @@ private async Task HandleDelete()
 {
     Task.IsCompleted = !Task.IsCompleted;
 
+    @* if(Task.IsCompleted){} *@
+
     CacheService.UpdateTask(Task);
     if (OnComplete.HasDelegate)
     {

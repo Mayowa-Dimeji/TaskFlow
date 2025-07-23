@@ -134,11 +134,11 @@ private async Task HandleSubmit()
             }
 
         // ✅ Delay before closing to allow UI to show message
-        
         await Task.Delay(500);
-
-await OnSubmitSuccess.InvokeAsync();
         Close(); 
+
+        await OnSubmitSuccess.InvokeAsync();
+        
         
     }
     else
