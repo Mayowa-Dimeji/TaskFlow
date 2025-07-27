@@ -1,4 +1,6 @@
 @using System.Globalization
+@using Newtonsoft.Json
+@using System.Text
 @using TaskFlow.Models
 @using TaskFlow.Services
 @using TaskFlow.Components
@@ -100,7 +102,7 @@
     [Parameter] public TaskModel Task { get; set; } = new();
     [Parameter] public EventCallback<TaskModel> OnEdit { get; set; } // to open modal from parent
    [Parameter] public EventCallback<string> OnDelete { get; set; } // to notify parent after delete
-    [Parameter] public EventCallback OnComplete { get; set; } // to notify parent after completion toggle
+    [Parameter] public EventCallback<TaskModel>  OnComplete { get; set; } // to notify parent after completion toggle
     private bool showNotification = false;
 private string notificationMessage = string.Empty;
 private string notificationType = "success";
@@ -164,18 +166,60 @@ private async Task HandleDelete()
 
 
 
- private async Task ToggleComplete()
+private async Task ToggleComplete()
 {
-    Task.IsCompleted = !Task.IsCompleted;
+    Task.IsCompleted = !Task.IsCompleted; // optimistic UI
 
-    @* if(Task.IsCompleted){} *@
-
-    CacheService.UpdateTask(Task);
-    if (OnComplete.HasDelegate)
+    try
     {
-        await OnComplete.InvokeAsync();
+        var token = await TokenService.GetToken();
+        if (string.IsNullOrWhiteSpace(token)) throw new Exception("No token");
+
+        Http.DefaultRequestHeaders.Authorization =new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        var updatePayload = new UpdateTaskDto
+        {
+            IsCompleted = Task.IsCompleted // ✅ only toggling this one field
+        };
+
+        var json = JsonConvert.SerializeObject(updatePayload, new JsonSerializerSettings
+        {
+            ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
+            NullValueHandling = NullValueHandling.Ignore
+        });
+
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await Http.PutAsync(
+            $"https://taskmanager-func-xyz-evghhpandvc6fvek.ukwest-01.azurewebsites.net/api/tasks/{Task.Id}",
+            content
+        );
+
+        if (response.IsSuccessStatusCode)
+        {
+            CacheService.UpdateTask(Task); // Update cache with new state
+            if (OnComplete.HasDelegate)
+                await OnComplete.InvokeAsync(Task);
+        }
+        else
+        {
+            // rollback UI
+            Task.IsCompleted = !Task.IsCompleted;
+            var error = await response.Content.ReadAsStringAsync();
+            notificationMessage = $"❌ Failed to toggle task: {error}";
+            notificationType = "error";
+            showNotification = true;
+        }
+    }
+    catch (Exception ex)
+    {
+        Task.IsCompleted = !Task.IsCompleted; // rollback UI
+        notificationMessage = $"❌ Error: {ex.Message}";
+        notificationType = "error";
+        showNotification = true;
     }
 }
+
 
 
     private string Capitalize(string text) => string.IsNullOrWhiteSpace(text) ? "" : char.ToUpper(text[0]) + text[1..];

@@ -1,6 +1,10 @@
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+
 using TaskFlow.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System.Text;
 
 namespace TaskFlow.Services
 {
@@ -75,11 +79,21 @@ namespace TaskFlow.Services
                     Description = task.Description,
                     IsCompleted = task.IsCompleted,
                     PriorityLevel = task.PriorityLevel,
-                    Tags = task.Tag is not null ? [task.Tag] : null,
+                    Tags = task.Tag ?? string.Empty,
                     DueDate = task.DueDate
                 };
+                var settings = new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                    NullValueHandling = NullValueHandling.Ignore
+                };
 
-                var response = await Http.PutAsJsonAsync($"https://taskmanager-func-xyz-evghhpandvc6fvek.ukwest-01.azurewebsites.net/api/tasks/{task.Id}", updatePayload);
+                var json = JsonConvert.SerializeObject(updatePayload, settings);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+
+
+                var response = await Http.PutAsJsonAsync($"https://taskmanager-func-xyz-evghhpandvc6fvek.ukwest-01.azurewebsites.net/api/tasks/{task.Id}", content);
 
                 return response.IsSuccessStatusCode;
             }

@@ -19,7 +19,7 @@
         @foreach (var task in FilteredTasks)
         {
             <TaskCard Task="task" OnEdit="OpenEditModal"
-          OnDelete="@(id => RefreshTasks(id))" />
+          OnDelete="@(id => RefreshTasks(id))" OnComplete="RefreshTasksAfterUpdate" @key="task.Id" />
         }
     </div>
 }
