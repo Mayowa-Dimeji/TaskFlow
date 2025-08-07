@@ -1119,10 +1119,10 @@
 /Users/may/projects/TaskFlow/obj/Release/net9.0/webcil/Newtonsoft.Json.wasm
 /Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/obzvgo76zd-qkbufwhni2.gz
 /Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/5h82vsf4v9-wffpt9co7u.gz
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.nklu8kc89o.wasm
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.d82zhpbb5i.pdb
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.nklu8kc89o.wasm.gz
-/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.d82zhpbb5i.pdb.gz
-/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/nhala78nx3-nklu8kc89o.gz
-/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/guv1hpirhb-d82zhpbb5i.gz
-/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/z6p70nt3ug-ek0r42v5k4.gz
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.7e9ox54wlb.wasm
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.vy392h7tip.pdb
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.7e9ox54wlb.wasm.gz
+/Users/may/projects/TaskFlow/bin/Release/net9.0/wwwroot/_framework/TaskFlow.vy392h7tip.pdb.gz
+/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/nhala78nx3-7e9ox54wlb.gz
+/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/guv1hpirhb-vy392h7tip.gz
+/Users/may/projects/TaskFlow/obj/Release/net9.0/compressed/z6p70nt3ug-zpcywlqqem.gz

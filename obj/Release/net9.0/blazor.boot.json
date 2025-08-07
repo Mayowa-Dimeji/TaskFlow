@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "TaskFlow",
   "resources": {
-    "hash": "sha256-X4Xr2qU7C9ZrkAqNR7CJaZvKwkc7bIQrThJYuJt7DNY=",
+    "hash": "sha256-s+jh8mM4cWAQnh//Oxjbsf4FpFe19JXno1V12tkbqnY=",
     "fingerprinting": {
       "Blazored.Toast.4gbrhkrum5.wasm": "Blazored.Toast.wasm",
       "Microsoft.AspNetCore.Authorization.bvu82j4ad3.wasm": "Microsoft.AspNetCore.Authorization.wasm",
@@ -209,8 +209,8 @@
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "TaskFlow.nklu8kc89o.wasm": "TaskFlow.wasm",
-      "TaskFlow.d82zhpbb5i.pdb": "TaskFlow.pdb"
+      "TaskFlow.7e9ox54wlb.wasm": "TaskFlow.wasm",
+      "TaskFlow.vy392h7tip.pdb": "TaskFlow.pdb"
     },
     "jsModuleNative": {
       "dotnet.native.rtblh4npr3.js": "sha256-HyBzcYNpT2l19+f1bpjNOa1oFoLe3K4JIQ6GsFK5m6I="
@@ -428,10 +428,10 @@
       "WindowsBase.u25hol0de4.wasm": "sha256-CgB28KCiYKHd4yK6IM0PJ526P7IbRCpNkGTqn+cLwxs=",
       "mscorlib.brg9pkj3je.wasm": "sha256-FzZwzxUYYyg3qxc7Km8r50UKAmRWrIeckSFG1NTHKNU=",
       "netstandard.wuzd3f1y6v.wasm": "sha256-yAXc0deBIRkWTVXqADZfhgZtrxGgJCIbZYVtA0NjvdM=",
-      "TaskFlow.nklu8kc89o.wasm": "sha256-t2A3QJ0vi092YvM+jnQ1CORVI1y2Y+hQlY/qKyE4gRE="
+      "TaskFlow.7e9ox54wlb.wasm": "sha256-j3oJ4n2h8s0BH82guYk5MmscvGXaAU1Ejk3wNLV6pjY="
     },
     "pdb": {
-      "TaskFlow.d82zhpbb5i.pdb": "sha256-DRtmo+H4J1sFXHS5flbiaizNdFjngPMRrHry7TUdu+w="
+      "TaskFlow.vy392h7tip.pdb": "sha256-V1Ir/idLqP9aACphs7rxXBKsTokyozTldLY7h84otjM="
     }
   },
   "cacheBootResources": true,

@@ -52,16 +52,19 @@
 
 private async Task HandleRegister()
 {
-    showNotification = true;
+    showNotification = false;
+    
     try
     {
         var response = await Http.PostAsJsonAsync(
             "https://taskmanager-func-xyz-evghhpandvc6fvek.ukwest-01.azurewebsites.net/api/registeruser",
             registerModel
         );
+        showNotification = true;
 
         if (response.IsSuccessStatusCode)
         {
+            
             notificationMessage = "🎉 Registration successful! Please log in.";
             notificationType = "success";
 
@@ -84,6 +87,7 @@ private async Task HandleRegister()
     }
     catch (Exception ex)
     {
+        showNotification = true;
         notificationMessage = $"❌ Registration failed:\n{ex.Message}";
         notificationType = "error";
     }
