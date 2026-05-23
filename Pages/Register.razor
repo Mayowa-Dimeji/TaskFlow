@@ -23,8 +23,8 @@
             <InputText @bind-Value="registerModel.Password" type="password" class="input w-full" placeholder="Password" />
         </div>
 
-        <button type="submit" class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 py-2 px-4 rounded text-white">
-            Register
+        <button type="submit" disabled="@isLoading" class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 py-2 px-4 rounded text-white disabled:opacity-60 disabled:cursor-not-allowed">
+            @(isLoading ? "Registering..." : "Register")
         </button>
     </EditForm>
 
@@ -39,7 +39,8 @@
 
 @code {
     private RegisterModel registerModel = new();
-      private bool showNotification = false;
+    private bool isLoading = false;
+    private bool showNotification = false;
     private string notificationMessage = string.Empty;
     private string notificationType = "success";
 
@@ -52,8 +53,8 @@
 
 private async Task HandleRegister()
 {
+    isLoading = true;
     showNotification = false;
-    
     try
     {
         var response = await Http.PostAsJsonAsync(
@@ -89,6 +90,10 @@ private async Task HandleRegister()
         showNotification = true;
         notificationMessage = $"❌ Registration failed:\n{ex.Message}";
         notificationType = "error";
+    }
+    finally
+    {
+        isLoading = false;
     }
 }
 

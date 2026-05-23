@@ -28,8 +28,8 @@
             <InputText @bind-Value="loginModel.Password" type="password" class="input" placeholder="Password" />
         </div>
 
-        <button type="submit" class="mt-4 w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700">
-            Log In
+        <button type="submit" disabled="@isLoading" class="mt-4 w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 disabled:opacity-60 disabled:cursor-not-allowed">
+            @(isLoading ? "Logging in..." : "Log In")
         </button>
     </EditForm>
 
@@ -45,6 +45,7 @@
 
 @code {
     private LoginModel loginModel = new();
+    private bool isLoading = false;
     private bool showNotification = false;
     private string notificationMessage = string.Empty;
     private string notificationType = "success";
@@ -57,6 +58,7 @@
 
  private async Task HandleLogin()
 {
+    isLoading = true;
     showNotification = false;
     try
     {
@@ -107,6 +109,10 @@ if (!string.IsNullOrEmpty(token))
         notificationMessage = $"⚠️ Something went wrong:\n{ex.Message}";
         notificationType = "error";
         showNotification = true;
+    }
+    finally
+    {
+        isLoading = false;
     }
 }
 
