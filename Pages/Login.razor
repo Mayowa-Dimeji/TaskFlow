@@ -84,7 +84,6 @@ if (!string.IsNullOrEmpty(token))
     }
 
     await TaskCacheService.LoadTasksAsync();
-    await Task.Delay(500);
     Nav.NavigateTo("/dashboard");
 }
 

@@ -4,9 +4,7 @@
 @using TaskFlow.Services
 @using TaskFlow.Models
 @inject ITokenService TokenService
-@inject TaskService TaskService
 @inject TaskCacheService TaskCacheService
-
 @inject AuthenticationStateProvider AuthProvider
 
 <AuthorizeView>
@@ -52,26 +50,23 @@
 </AuthorizeView>
 
 @code {
-    [Parameter] public TaskStats Stats { get; set; } = new TaskStats();
+    private TaskStats Stats { get; set; } = new TaskStats();
     private string? username;
-     private bool showAddModal = false;
+    private bool showAddModal = false;
 
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthProvider.GetAuthenticationStateAsync();
         var user = authState.User;
         TaskCacheService.OnTasksChanged += HandleTasksChanged;
-        await TaskService.GetTaskStatsAsync() ;
 
         if (user.Identity?.IsAuthenticated ?? false)
         {
             username = await TokenService.GetUsername();
-            await TaskCacheService.LoadTasksAsync(); // ✅ Load into cache
-             UpdateStatsFromCache(); 
+            if (!TaskCacheService.CachedTasks.Any())
+                await TaskCacheService.LoadTasksAsync();
+            UpdateStatsFromCache();
         }
-
-        // Optional: call your GetTasks endpoint and set Stats dynamically
-        // For now, if no API call, Stats will default to all zeroes
     }
    
 
@@ -80,9 +75,8 @@ private void ToggleModal()
     showAddModal = !showAddModal;
 }
 
-private async Task HandleTaskCreated()
+private void HandleTaskCreated()
 {
-    await TaskCacheService.LoadTasksAsync(); // Refresh cache
     UpdateStatsFromCache();
     showAddModal = false;
     StateHasChanged();

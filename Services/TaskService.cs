@@ -93,7 +93,7 @@ namespace TaskFlow.Services
 
 
 
-                var response = await Http.PutAsJsonAsync($"https://taskmanager-func-xyz-evghhpandvc6fvek.ukwest-01.azurewebsites.net/api/tasks/{task.Id}", content);
+                var response = await Http.PutAsync($"https://taskmanager-func-xyz-evghhpandvc6fvek.ukwest-01.azurewebsites.net/api/tasks/{task.Id}", content);
 
                 return response.IsSuccessStatusCode;
             }
